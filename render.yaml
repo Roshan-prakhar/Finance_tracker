@@ -7,7 +7,7 @@ services:
     startCommand: java -jar target/moneymanager.jar
     envVars:
       - key: SPRING_PROFILES_ACTIVE
-        value: prod
+        value: minimal
       - key: SPRING_DATASOURCE_URL
         fromDatabase:
           name: moneymanager-db
