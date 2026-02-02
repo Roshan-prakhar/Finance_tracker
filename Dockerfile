@@ -12,10 +12,8 @@ COPY src ./src
 
 RUN mvn clean package -DskipTests
 
+# Explicit port configuration
 EXPOSE 8080
-
-# Set port to 8080 for Render
 ENV PORT=8080
-EXPOSE $PORT
 
-CMD ["java", "-jar", "target/moneymanager-0.0.1-SNAPSHOT.jar"]
+CMD ["sh", "-c", "java -jar target/moneymanager-0.0.1-SNAPSHOT.jar --server.port=$PORT"]
