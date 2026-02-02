@@ -1,10 +1,10 @@
 services:
   - type: web
     name: money-manager-backend
-    env: java
+    env: docker
     plan: free
-    buildCommand: "./mvnw clean package -DskipTests"
-    startCommand: "java -jar target/moneymanager-0.0.1-SNAPSHOT.jar"
+    dockerContext: .
+    dockerfilePath: ./Dockerfile
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: prod
