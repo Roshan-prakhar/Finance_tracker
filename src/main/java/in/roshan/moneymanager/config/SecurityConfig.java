@@ -63,6 +63,9 @@ public class SecurityConfig {
                         .requestMatchers("/status", "/health", "/register", "/activate", "/login", "/oauth2/**", "/login/oauth2/**", "/oauth/**", "/oauth/success", "/oauth/failure").permitAll()
                         .anyRequest().authenticated())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .oauth2Login(oauth2 -> oauth2
+                        .defaultSuccessUrl("/oauth/success", true)
+                        .failureUrl("/oauth/failure"))
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 
         return httpSecurity.build();
