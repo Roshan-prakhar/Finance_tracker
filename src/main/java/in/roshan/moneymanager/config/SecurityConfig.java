@@ -39,11 +39,11 @@ public class SecurityConfig {
     @Order(1)
     public SecurityFilterChain oauthSecurityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
-                .securityMatcher("/oauth2/**", "/login/oauth2/**", "/oauth/**")
+                .securityMatcher("/oauth2/**", "/login/oauth2/**", "/oauth/**", "/oauth/success", "/oauth/failure")
                 .cors(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/oauth2/**", "/login/oauth2/**", "/oauth/failure").permitAll()
+                        .requestMatchers("/oauth2/**", "/login/oauth2/**", "/oauth/**", "/oauth/success", "/oauth/failure").permitAll()
                         .anyRequest().authenticated())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
                 .oauth2Login(oauth2 -> oauth2
