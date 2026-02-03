@@ -1,19 +1,16 @@
-FROM eclipse-temurin:17-jdk-alpine
-
+# Build stage
+FROM maven:3.9-eclipse-temurin-17-alpine AS build
 WORKDIR /app
-
-# Install Maven
-RUN apk add --no-cache maven
-
-COPY pom.xml ./
+COPY pom.xml .
 RUN mvn dependency:go-offline -B
-
 COPY src ./src
-
 RUN mvn clean package -DskipTests
 
-# Explicit port configuration
+# Run stage
+FROM eclipse-temurin:17-jre-alpine
+WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
 ENV PORT=8080
-
-CMD ["sh", "-c", "java -jar target/moneymanager-0.0.1-SNAPSHOT.jar --server.port=$PORT"]
+ENV JAVA_OPTS="-Xmx256m -Xms128m"
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -Dserver.port=${PORT} -jar app.jar"]
