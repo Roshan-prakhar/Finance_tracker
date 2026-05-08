@@ -1,4 +1,7 @@
+C:\Users\BIT\Downloads\money manager\moneymanager\src\main\java\in\ROSHAN\moneymanager\config\DatabaseConfig.java
+C:\Users\BIT\Downloads\money manager\moneymanager\src\main\java\in\ROSHAN\moneymanager\config\MinimalSecurityConfig.java
 C:\Users\BIT\Downloads\money manager\moneymanager\src\main\java\in\ROSHAN\moneymanager\config\SecurityConfig.java
+C:\Users\BIT\Downloads\money manager\moneymanager\src\main\java\in\ROSHAN\moneymanager\config\StartupListener.java
 C:\Users\BIT\Downloads\money manager\moneymanager\src\main\java\in\ROSHAN\moneymanager\controller\CategoryController.java
 C:\Users\BIT\Downloads\money manager\moneymanager\src\main\java\in\ROSHAN\moneymanager\controller\DashboardController.java
 C:\Users\BIT\Downloads\money manager\moneymanager\src\main\java\in\ROSHAN\moneymanager\controller\EmailController.java
@@ -8,6 +11,8 @@ C:\Users\BIT\Downloads\money manager\moneymanager\src\main\java\in\ROSHAN\moneym
 C:\Users\BIT\Downloads\money manager\moneymanager\src\main\java\in\ROSHAN\moneymanager\controller\HomeController.java
 C:\Users\BIT\Downloads\money manager\moneymanager\src\main\java\in\ROSHAN\moneymanager\controller\IncomeController.java
 C:\Users\BIT\Downloads\money manager\moneymanager\src\main\java\in\ROSHAN\moneymanager\controller\ProfileController.java
+C:\Users\BIT\Downloads\money manager\moneymanager\src\main\java\in\ROSHAN\moneymanager\controller\RootController.java
+C:\Users\BIT\Downloads\money manager\moneymanager\src\main\java\in\ROSHAN\moneymanager\controller\TestController.java
 C:\Users\BIT\Downloads\money manager\moneymanager\src\main\java\in\ROSHAN\moneymanager\dto\AuthDTO.java
 C:\Users\BIT\Downloads\money manager\moneymanager\src\main\java\in\ROSHAN\moneymanager\dto\CategoryDTO.java
 C:\Users\BIT\Downloads\money manager\moneymanager\src\main\java\in\ROSHAN\moneymanager\dto\ExpenseDTO.java

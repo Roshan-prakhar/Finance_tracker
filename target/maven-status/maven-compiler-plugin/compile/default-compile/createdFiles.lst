@@ -30,7 +30,10 @@ in\ROSHAN\moneymanager\service\ProfileService.class
 in\ROSHAN\moneymanager\security\JwtRequestFilter.class
 in\ROSHAN\moneymanager\controller\ExpenseController.class
 in\ROSHAN\moneymanager\service\ExcelService.class
+in\ROSHAN\moneymanager\config\DatabaseConfig.class
+in\ROSHAN\moneymanager\config\MinimalSecurityConfig.class
 in\ROSHAN\moneymanager\controller\EmailController.class
+in\ROSHAN\moneymanager\controller\RootController.class
 in\ROSHAN\moneymanager\controller\ProfileController.class
 in\ROSHAN\moneymanager\service\AppUserDetailsService.class
 in\ROSHAN\moneymanager\controller\ExcelController.class
@@ -40,8 +43,10 @@ in\ROSHAN\moneymanager\dto\ExpenseDTO$ExpenseDTOBuilder.class
 in\ROSHAN\moneymanager\controller\IncomeController.class
 in\ROSHAN\moneymanager\entity\ProfileEntity.class
 in\ROSHAN\moneymanager\dto\RecentTransactionDTO$RecentTransactionDTOBuilder.class
+in\ROSHAN\moneymanager\config\StartupListener.class
 in\ROSHAN\moneymanager\dto\CategoryDTO.class
 in\ROSHAN\moneymanager\dto\ProfileDTO$ProfileDTOBuilder.class
 in\ROSHAN\moneymanager\entity\IncomeEntity$IncomeEntityBuilder.class
 in\ROSHAN\moneymanager\service\CategoryService.class
 in\ROSHAN\moneymanager\controller\HomeController.class
+in\ROSHAN\moneymanager\controller\TestController.class

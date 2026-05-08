@@ -1,10 +1,9 @@
 package in.ROSHAN.moneymanager.controller;
+
 import in.ROSHAN.moneymanager.entity.ProfileEntity;
 import in.ROSHAN.moneymanager.service.*;
-import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,10 +23,11 @@ public class EmailController {
     private final ProfileService profileService;
 
     @GetMapping("/income-excel")
-    public ResponseEntity<Void> emailIncomeExcel() throws IOException, MessagingException {
+    public ResponseEntity<Void> emailIncomeExcel() throws IOException {
         ProfileEntity profile = profileService.getCurrentProfile();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         excelService.writeIncomesToExcel(baos, incomeService.getCurrentMonthIncomesForCurrentUser());
+        // Email sending disabled; keep endpoint for future use
         emailService.sendEmailWithAttachment(profile.getEmail(),
                 "Your Income Excel Report",
                 "Please find attached your income report",
@@ -37,10 +37,11 @@ public class EmailController {
     }
 
     @GetMapping("/expense-excel")
-    public ResponseEntity<Void> emailExpenseExcel() throws IOException, MessagingException {
+    public ResponseEntity<Void> emailExpenseExcel() throws IOException {
         ProfileEntity profile = profileService.getCurrentProfile();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         excelService.writeExpensesToExcel(baos, expenseService.getCurrentMonthExpensesForCurrentUser());
+        // Email sending disabled; keep endpoint for future use
         emailService.sendEmailWithAttachment(
                 profile.getEmail(),
                 "Your Expense Excel Report",
