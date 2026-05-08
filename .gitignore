@@ -27,8 +27,17 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+### Build output ###
+target/
+
 ### VS Code ###
 .vscode/
 src/main/resources/application.properties
 src/main/resources/application-prod.properties
+
+### H2 runtime database files (do NOT commit) ###
+data/
+*.mv.db
+*.trace.db
+*.lock.db
 
