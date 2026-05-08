@@ -1,6 +1,5 @@
 package in.ROSHAN.moneymanager.controller;
 
-import in.ROSHAN.moneymanager.dto.ExpenseDTO;
 import in.ROSHAN.moneymanager.dto.IncomeDTO;
 import in.ROSHAN.moneymanager.service.IncomeService;
 import lombok.RequiredArgsConstructor;

@@ -1,9 +1,7 @@
 package in.ROSHAN.moneymanager.service;
 
-import in.ROSHAN.moneymanager.dto.ExpenseDTO;
 import in.ROSHAN.moneymanager.dto.IncomeDTO;
 import in.ROSHAN.moneymanager.entity.CategoryEntity;
-import in.ROSHAN.moneymanager.entity.ExpenseEntity;
 import in.ROSHAN.moneymanager.entity.IncomeEntity;
 import in.ROSHAN.moneymanager.entity.ProfileEntity;
 import in.ROSHAN.moneymanager.repository.CategoryRepository;

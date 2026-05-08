@@ -1,10 +1,8 @@
 package in.ROSHAN.moneymanager.controller;
 
 import in.ROSHAN.moneymanager.dto.CategoryDTO;
-import in.ROSHAN.moneymanager.entity.CategoryEntity;
 import in.ROSHAN.moneymanager.service.CategoryService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +13,6 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/categories")
 public class CategoryController {
-    @Autowired
     private final CategoryService categoryService;
 
     @PostMapping

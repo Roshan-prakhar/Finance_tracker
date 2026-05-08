@@ -13,8 +13,6 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static java.util.stream.Stream.concat;
-
 @Service
 @RequiredArgsConstructor
 public class DashboardService {
@@ -28,7 +26,7 @@ public class DashboardService {
         Map<String, Object> returnValue = new LinkedHashMap<>();
         List<IncomeDTO> latestIncomes = incomeService.getLatest5IncomesForCurrentUser();
         List<ExpenseDTO> latestExpenses = expenseService.getLatest5ExpensesForCurrentUser();
-        List<RecentTransactionDTO> recentTransactions = concat(latestIncomes.stream().map(income ->
+        List<RecentTransactionDTO> recentTransactions = Stream.concat(latestIncomes.stream().map(income ->
                         RecentTransactionDTO.builder()
                                 .id(income.getId())
                                 .profileId(profile.getId())

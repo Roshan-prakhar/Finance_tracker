@@ -2,9 +2,7 @@ package in.ROSHAN.moneymanager.service;
 
 import in.ROSHAN.moneymanager.entity.ProfileEntity;
 import in.ROSHAN.moneymanager.repository.ProfileRepository;
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
