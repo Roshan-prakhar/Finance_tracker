@@ -13,6 +13,6 @@ services:
       - key: MONEY_MANAGER_FRONTEND_URL
         value: https://finance-tracker-28.netlify.app
       - key: APP_ACTIVATION_URL
-        value: https://moneymanager-backend.onrender.com/
+        value: https://finance-tracker-4lpe.onrender.com/
       # No SPRING_DATASOURCE_* vars => application.properties default kicks in
       # (jdbc:h2:file:./data/moneymanager;AUTO_SERVER=TRUE)
