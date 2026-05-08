@@ -54,6 +54,8 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOriginPatterns(List.of(
+            "https://finance-tracker-28.netlify.app",
+            "https://*.netlify.app",
             "https://money-manger-webapp.onrender.com",
             "https://moneymanager-frontend.onrender.com",
             "https://*.onrender.com",

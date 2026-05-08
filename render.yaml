@@ -5,30 +5,14 @@ services:
     plan: free
     buildCommand: ./mvnw clean package -DskipTests
     startCommand: java -jar target/moneymanager.jar
+    # Free instance has ephemeral disk; H2 DB file is recreated on each deploy.
+    # Attach a Render Disk if you need persistence.
     envVars:
-      - key: SPRING_PROFILES_ACTIVE
-        value: minimal
-      - key: SPRING_DATASOURCE_URL
-        fromDatabase:
-          name: moneymanager-db
-          property: connectionString
-      - key: SPRING_DATASOURCE_USERNAME
-        fromDatabase:
-          name: moneymanager-db
-          property: user
-      - key: SPRING_DATASOURCE_PASSWORD
-        fromDatabase:
-          name: moneymanager-db
-          property: password
       - key: JWT_SECRET
         generateValue: true
       - key: MONEY_MANAGER_FRONTEND_URL
-        value: https://money-manger-webapp.onrender.com
+        value: https://finance-tracker-28.netlify.app
       - key: APP_ACTIVATION_URL
         value: https://moneymanager-backend.onrender.com/
-
-databases:
-  - name: moneymanager-db
-    plan: free
-    databaseName: moneymanager
-    user: moneymanager_user
+      # No SPRING_DATASOURCE_* vars => application.properties default kicks in
+      # (jdbc:h2:file:./data/moneymanager;AUTO_SERVER=TRUE)
