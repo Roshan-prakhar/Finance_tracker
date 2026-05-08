@@ -2,8 +2,11 @@ package in.ROSHAN.moneymanager.config;
 
  import in.ROSHAN.moneymanager.security.JwtRequestFilter;
 import in.ROSHAN.moneymanager.service.AppUserDetailsService;
+import in.ROSHAN.moneymanager.security.OAuth2LoginSuccessHandler;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -26,6 +29,10 @@ public class SecurityConfig {
     private final AppUserDetailsService appUserDetailsService;
     private final JwtRequestFilter jwtRequestFilter;
 
+    @Lazy
+    @Autowired
+    private OAuth2LoginSuccessHandler oAuth2LoginSuccessHandler;
+
     public SecurityConfig(AppUserDetailsService appUserDetailsService, JwtRequestFilter jwtRequestFilter) {
         this.appUserDetailsService = appUserDetailsService;
         this.jwtRequestFilter = jwtRequestFilter;
@@ -38,9 +45,11 @@ public class SecurityConfig {
                 // Allow H2 console UI (iframes) to render
                 .headers(headers -> headers.frameOptions(frame -> frame.disable()))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/status", "/health", "/register", "/activate", "/login", "/h2-console/**").permitAll()
+                        .requestMatchers("/status", "/health", "/register", "/activate", "/login",
+                                "/h2-console/**", "/oauth2/**", "/login/oauth2/**").permitAll()
                         .anyRequest().authenticated())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .oauth2Login(oauth2 -> oauth2.successHandler(oAuth2LoginSuccessHandler))
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
         return httpSecurity.build();
     }

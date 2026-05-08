@@ -14,6 +14,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
+import java.util.Optional;
+import java.util.UUID;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -91,6 +94,29 @@ public class ProfileService {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return profileRepository.findByEmail(authentication.getName())
                 .orElseThrow(() -> new RuntimeException("Profile not found with email: " + authentication.getName()));
+    }
+
+    /**
+     * Finds an existing user by email or creates a new one from OAuth2 attributes.
+     */
+    @Transactional
+    public Map<String, Object> findOrCreateOAuthUser(String email, String name, String profileImageUrl) {
+        Optional<ProfileEntity> existing = profileRepository.findByEmail(email);
+        ProfileEntity profile;
+        if (existing.isPresent()) {
+            profile = existing.get();
+        } else {
+            profile = ProfileEntity.builder()
+                    .fullName(name)
+                    .email(email)
+                    .password(passwordEncoder.encode(UUID.randomUUID().toString()))
+                    .profileImageUrl(profileImageUrl)
+                    .isActive(true)
+                    .build();
+            profile = profileRepository.save(profile);
+        }
+        String token = jwtUtil.generateToken(email);
+        return Map.of("token", token, "user", toDTO(profile));
     }
 
     /**
