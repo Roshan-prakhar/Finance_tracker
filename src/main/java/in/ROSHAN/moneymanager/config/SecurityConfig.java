@@ -48,7 +48,7 @@ public class SecurityConfig {
                         .requestMatchers("/status", "/health", "/register", "/activate", "/login",
                                 "/h2-console/**", "/oauth2/**", "/login/oauth2/**").permitAll()
                         .anyRequest().authenticated())
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
                 .oauth2Login(oauth2 -> oauth2.successHandler(oAuth2LoginSuccessHandler))
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
         return httpSecurity.build();
