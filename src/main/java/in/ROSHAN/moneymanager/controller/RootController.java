@@ -10,4 +10,14 @@ public class RootController {
     public String root() {
         return "Money Manager Backend is running!";
     }
+
+    @GetMapping("/health")
+    public String health() {
+        return "OK";
+    }
+
+    @GetMapping("/status")
+    public String status() {
+        return "OK";
+    }
 }
