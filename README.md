@@ -3,7 +3,7 @@
 A robust **Spring Boot 3.5 + Java 21** REST API powering the Finve personal finance tracker. Handles authentication (JWT + Google OAuth2), transactions, categories, analytics, Excel export, and more.
 
 🔗 **Live API:** https://finance-tracker-4lpe.onrender.com
-🔗 **Frontend:** [finance_tracker-frontend](finance-tracker-28.netlify.app)
+🔗 **Frontend:** [finance_tracker-frontend](finance-tracker-28.netlify.app/)
 
 ---
 
